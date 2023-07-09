@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.displayColum{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.h3{
+    font-size: 18px;
+    color: #5d6287
+}
+
+.label{
+    color: rgb(93, 98, 135);
+    font-size: 14px;
+}
+
+#status{
+    background-color: white;
+    color: black;
+}
+
+.blockBtn {
+    display: flex;
+    gap: 10px;
+}
+
+#btn{
+    color: rgb(106, 110, 135);
+    background-color: rgb(204, 205, 222);
+}

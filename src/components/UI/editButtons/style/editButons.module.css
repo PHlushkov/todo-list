@@ -1,0 +1,11 @@
+.btn{
+    cursor: pointer;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+}
+
+.svg{
+    width: 23px;
+    height: 21px;
+}

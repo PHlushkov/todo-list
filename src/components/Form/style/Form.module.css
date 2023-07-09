@@ -1,0 +1,28 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.h3{
+    padding-bottom: 20px;
+    font-size: 18px;
+    color: #5d6287
+}
+
+.label{
+    color: rgb(93, 98, 135);
+    font-size: 14px;
+}
+
+#input{
+    background: white;
+    color: rgb(67, 67, 67)
+}
+
+.btn{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}

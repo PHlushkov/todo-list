@@ -1,0 +1,9 @@
+.mySelect{
+    background-color: #cccdde;
+    color: #7d7f88;
+    padding: 9px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}

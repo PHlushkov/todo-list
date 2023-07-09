@@ -1,0 +1,56 @@
+.list{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ecedf6;
+    padding: 15px 20px 15px 20px;
+    border-radius: 10px;
+}
+
+.task{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input{
+    width: 29px;
+    height: 26px;
+    cursor: pointer;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 15px;
+    color: #646681;
+}
+
+.date{
+    font-weight: 300;
+    font-size: 12px;
+    color: #646681;
+}
+
+.editorBtn {
+    display: flex;
+    gap: 10px;  
+}
+
+.text{
+    color: aqua;
+}
+
+.completed{
+    text-decoration: line-through;
+
+}

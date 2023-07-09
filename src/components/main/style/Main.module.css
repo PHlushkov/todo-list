@@ -1,0 +1,35 @@
+.main {
+    padding: 0px 15px 0px 15px;
+    width: 750px;
+    margin-top: 15px;
+}
+
+.h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: #646681;
+}
+
+.control{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.message{
+    display: flex;
+    margin-top: 10px;
+    background-color: #ecedf6;
+    padding: 15px 20px 15px 20px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.txtMessage{
+    padding: 5px 20px;
+    background-color: #dedfe1;
+    border-radius: 6px;
+    color: #5a5762;
+}
