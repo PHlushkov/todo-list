@@ -6,14 +6,7 @@ import classes from "./style/EditingTask.module.css"
 
 function EditingTask({taskEdit, setTaskEdit, setTaskLists, setModal}) {
 
-    const [statusTask, setStatusTask] = useState(false)
-
-    if (statusTask === "true") {
-        setStatusTask(true)
-    } else if(statusTask === "false"){
-        setStatusTask(false)
-    }
-
+    const [statusTask, setStatusTask] = useState("completed")
 
 
     const saveEdit = () => {
@@ -46,12 +39,14 @@ function EditingTask({taskEdit, setTaskEdit, setTaskLists, setModal}) {
             <div className={classes.displayColum}>
                 <label className={classes.label} htmlFor="status">Status</label>
                 <MySelect
+                    sortOption={statusTask}
+                    setSortOption={setStatusTask} 
                     onChange={(e)=> setStatusTask(e.target.value)}
-                    defaultValue="Status"
+                    defaultValue={statusTask}
                     id={classes.status}
                     options={[
-                        {value: true, name: "Complete"},
-                        {value: false, name: "Incomplete"}
+                        {value: "completed", name: "Complete"},
+                        {value: "incompleted", name: "Incomplete"}
                     ]}
                 />
             </div>

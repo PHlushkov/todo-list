@@ -13,18 +13,12 @@ function Form({
     taskLists, 
 }) {
 
-    const [statusTask, setStatusTask] = useState(false)
+    const [statusTask, setStatusTask] = useState("incompleted")
 
     const [task, setTask] = useState({
         title:"",
         date: newDate(),
     })
-
-    if (statusTask === "true") {
-        setStatusTask(true)
-    } else if(statusTask === "false"){
-        setStatusTask(false)
-    }
 
     const closeWindow = (e) => {
         e.preventDefault()
@@ -33,11 +27,11 @@ function Form({
 
     const addNewTask = (e) => {
         e.preventDefault()
+        console.log(statusTask);
         setTaskLists([...taskLists, {...task, id: getUniqueID(), completed: statusTask}])
         setTask({...task, title: "", date: newDate()})
         closeModal(false)
     }
-
 
     return (
         <div>
@@ -60,15 +54,17 @@ function Form({
                     htmlFor="status">
                     Status
                 </label>
-                <MySelect  
-                    onClick={(e)=> {setStatusTask(e.target.value)}}
-                    id={classes.input} 
-                    defaultValue="Status"
-                    options={[
-                        {value: false, name: "Incomplete"},
-                        {value: true, name: "Complete"}
-                    ]}
-                />
+                    <MySelect 
+                        sortOption={statusTask}
+                        setSortOption={setStatusTask}
+                        onClick={(e)=> {setStatusTask(e.target.value)}}
+                        id={classes.input} 
+                        defaultValue={statusTask}
+                        options={[
+                            {value: "incompleted", name: "Incomplete"},
+                            {value: "completed", name: "Complete"}
+                        ]}
+                    />
                 <div className={classes.btn}>
                     <MyBtn onClick={addNewTask}>
                         Add task
@@ -85,3 +81,4 @@ function Form({
 }
 
 export default Form
+

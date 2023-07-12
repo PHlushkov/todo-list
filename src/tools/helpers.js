@@ -36,7 +36,11 @@ export const toggleComplete = (id, setTaskLists) => {
   setTaskLists((prevTaskLists) =>
     prevTaskLists.map((task) => {
       if (task.id === id) {
-        return { ...task, completed: !task.completed };
+        return {
+          ...task,
+          completed:
+            task.completed === "completed" ? "incompleted" : "completed",
+        };
       }
       return task;
     })

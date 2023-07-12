@@ -7,3 +7,42 @@
     cursor: pointer;
     font-weight: bold;
 }
+
+
+
+.sortOptionsContainer{
+    width: 130px;
+    height: 30px;
+    position: relative;
+}
+
+.sortTask{
+    cursor: pointer;
+    height: 32px;
+    width: 128px;   
+    text-align: center;
+    background-color: #cccdde;
+    color: #7d7f88;
+    border: none;
+    border-radius: 6px;
+}
+
+.sortOptionList{
+    position: absolute;
+    top: 30px;
+    padding-top: 5px;
+}
+
+.option{
+    color: #7d7f88;
+    width: 129px;
+    cursor: pointer;
+    background-color: #cccdde;;
+    text-align: center;
+    padding: 1px;
+}
+
+.option:last-child {
+     border-bottom-left-radius:6px ;
+     border-bottom-right-radius:6px ;
+  }

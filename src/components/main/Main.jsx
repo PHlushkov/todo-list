@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import MyBtn from '../UI/MyBtn/MyBtn'
 import MySelect from '../UI/select/MySelect'
 import classes from "./style/Main.module.css"
@@ -10,41 +10,21 @@ function Main({taskLists, setTaskLists, completed}) {
 
     const [modal, setModal] = useState(false)
     const [sortOption, setSortOption] = useState('all');
-    const [currentTask, setCurrentTask] = useState(taskLists)
-
-    // Функция для обновления опции сортировки
-    const handleSortOptionChange = (event) => {
-      setSortOption(event.target.value);
+    
+    // Функция для фильтрации и сортировки задач
+    const getSortedTasks = () => {
+      let sortedTasks = [...taskLists];
+  
+      if (sortOption === 'completed') {
+        sortedTasks = sortedTasks.filter(task => task.completed === "completed");
+      } else if (sortOption === 'incompleted') {
+        sortedTasks = sortedTasks.filter(task => task.completed === "incompleted");
+      }
+  
+      return sortedTasks;
     };
   
-    // Функция для фильтрации и сортировки задач
-    // const getSortedTasks = () => {
-    //   let sortedTasks = [...taskLists];
-  
-    //   if (sortOption === 'completed') {
-    //     sortedTasks = sortedTasks.filter(task => task.completed);
-    //   } else if (sortOption === 'incomplete') {
-    //     sortedTasks = sortedTasks.filter(task => !task.completed);
-    //   }
-  
-    //   return sortedTasks;
-    // };
-  
-    useEffect(() => {
-  
-        if (sortOption === 'completed') {
-            setCurrentTask(taskLists.filter(task => task.completed));
-        } 
-        if (sortOption === 'incomplete') {
-            setCurrentTask(taskLists.filter(task => !task.completed));
-        }
-        if(sortOption === 'all') {
-        setCurrentTask(taskLists)
-  }
-  
-  }, [sortOption])
-
-    // const sortedTasks = getSortedTasks();
+    const sortedTasks = getSortedTasks();
 
     return (
         <div className={classes.main}>
@@ -54,26 +34,27 @@ function Main({taskLists, setTaskLists, completed}) {
                 <MyModal visible={modal} setVisible={setModal}>
                     <Form 
                         closeModal={setModal} 
-                        taskLists={currentTask}
-                        setTaskLists={setCurrentTask}
+                        taskLists={taskLists}
+                        setTaskLists={setTaskLists}
                         completed={completed}
                         />
                 </MyModal>
                 <MySelect 
-                    onClick={handleSortOptionChange}
+                    sortOption={sortOption}
+                    setSortOption={setSortOption}
                     options={[
                         {value: "all", name: "ALL"},
-                        {value: "incomplete", name: "Incomplete"},
+                        {value: "incompleted", name: "Incomplete"},
                         {value: "completed", name: "Complete"}
                     ]}
-                    defaultValue="Sotring"
+                    defaultValue={sortOption.toUpperCase()}
                 />
             </div>
-            {currentTask.length ? <TaskList
+            {sortedTasks.length ? <TaskList
                                      completed={completed} 
                                      modal={modal} setModal={setModal} 
-                                     taskLists={currentTask} 
-                                     setTaskLists={setCurrentTask}
+                                     taskLists={sortedTasks} 
+                                     setTaskLists={setTaskLists}
                                 /> : 
                                 <div 
                                     className={classes.message}>

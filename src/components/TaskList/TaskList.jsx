@@ -33,10 +33,10 @@ function TaskList({taskLists, setTaskLists}) {
                             value={taskLists.completed} 
                             className={classes.input} 
                             type="checkbox"
-                            checked={task.completed}
+                            checked={task.completed === "completed"}
                             onChange={() => toggleComplete(task.id, setTaskLists)}
                         />
-                        <div className={task.completed ? classes.completed : ''}> 
+                            <div className={task.completed  === "completed" ? classes.completed : ''}>          
                             <h4 className={classes.title}>{task.title}</h4>
                             <p className={classes.date}>{task.date}</p>
                         </div>

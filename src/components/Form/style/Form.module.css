@@ -17,7 +17,8 @@
 
 #input{
     background: white;
-    color: rgb(67, 67, 67)
+    color: rgb(67, 67, 67);
+    width: 331px;
 }
 
 .btn{
